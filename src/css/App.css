@@ -1,2 +1,25 @@
 @import "tailwindcss";
-*{margin:0;padding:0;}
+/* 1. Modern Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: system-ui, sans-serif;
+  
+  /* 2. Mobile-First Base Settings */
+  font-size: 16px; /* Great default legibility for mobile */
+  background-color: #ffffff;
+  color: #1a1a1a;
+  overflow-x: hidden; /* Prevents accidental horizontal scrolling on small screens */
+}
+
+img, picture {
+  max-width: 100%;
+  display: block;
+}
