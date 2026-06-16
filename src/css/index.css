@@ -1,2 +1,11 @@
+
 @import "tailwindcss";
+/* 1. Tell the browser where to download the custom flag graphics */
+@import url('https://unpkg.com/country-flag-emoji-polyfill@0.1.8/dist/TwemojiCountryFlags.css');
 @custom-variant dark (&:where(.Dark,.Dark *));
+
+
+/* 2. Apply it globally as a backup font family so your app falls back to it */
+body, input, select, button {
+  font-family: system-ui, "Twemoji Country Flags", sans-serif;
+}
