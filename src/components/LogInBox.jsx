@@ -4,7 +4,14 @@ import { useNavigate } from "react-router-dom";
 function LogInBox() {
   const navigate = useNavigate();
   const [fullNumber,setFullNumber]=useState("");
+  const [isFormInValid,setIsFormInValid]=useState(true);
 
+  const handlePhoneChange =(e)=>{
+    setFullNumber(e.target.value);
+    if(fullNumber.length+1 == 10){
+      setIsFormInValid(false);
+    }
+  }
   const handlePhoneSubmit = (e) => {
     e.preventDefault();
     
@@ -18,8 +25,8 @@ function LogInBox() {
   return (
     <>
     <form>
-        <CountryCodeSelector/><input type="number" name="phn" id="phn" placeholder="Enter Phone Number" onChange={(e)=>setFullNumber(e)}/>
-        <button type="submit" onClick={handlePhoneSubmit}>Get OTP</button>
+        <CountryCodeSelector/><input type="number" name="phn" id="phn" placeholder="Enter Phone Number" onChange={handlePhoneChange}/>
+        <button type="submit" disabled={isFormInValid} onClick={handlePhoneSubmit}>Get OTP</button>
     </form>
     </>
   )

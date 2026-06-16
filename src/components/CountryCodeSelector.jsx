@@ -13,7 +13,7 @@ const getFlagEmoji = (countryCode) => {
 };
 
 function CountryCodeSelector() {
-  const [selectedCountry, setSelectedCountry] = useState('US');
+  const [selectedCountry, setSelectedCountry] = useState('IN');
 
   // 2. Sort countries alphabetically by name so the dropdown is user-friendly
   const sortedCountries = [...countryData].sort((a, b) => 
@@ -21,8 +21,8 @@ function CountryCodeSelector() {
   );
 
   return (
-    <div style={{ padding: '20px' }}>
-      <label htmlFor="country-select" style={{ display: 'block', marginBottom: '8px' }}>
+    <div>
+      <label htmlFor="country-select">
         Select Country:
       </label>
 
@@ -30,7 +30,6 @@ function CountryCodeSelector() {
         id="country-select"
         value={selectedCountry}
         onChange={(e) => setSelectedCountry(e.target.value)}
-        style={{ padding: '10px', fontSize: '16px', borderRadius: '5px' }}
       >
         {sortedCountries.map((country) => {
           const flag = getFlagEmoji(country['alpha-2']);
@@ -42,7 +41,7 @@ function CountryCodeSelector() {
         })}
       </select>
 
-      <p style={{ marginTop: '15px' }}>
+      <p>
         Selected Code: <strong>{selectedCountry}</strong>
       </p>
     </div>

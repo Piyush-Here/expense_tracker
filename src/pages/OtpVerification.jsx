@@ -57,13 +57,13 @@ function OtpVerification() {
   };
 
   return (
-    <div style={{ padding: '20px', textAlign: 'center' }}>
+    <div>
       <h2>Enter Verification Code</h2>
       <p>We've sent a 6-digit code to {phoneNumber}.</p>
       
       <form onSubmit={handleSubmit}>
         {/* Container for the 6 boxes */}
-        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', marginBottom: '20px' }}>
+        <div>
           {otp.map((data, index) => (
             <input
               key={index}
@@ -75,17 +75,11 @@ function OtpVerification() {
               ref={(el) => (inputRefs.current[index] = el)}
               onChange={(e) => handleChange(e.target, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              style={{
-                width: '40px',
-                height: '40px',
-                fontSize: '20px',
-                textAlign: 'center',
-              }}
             />
           ))}
         </div>
 
-        <button type="submit" style={{ padding: '10px 20px', fontSize: '16px' }} onClick={handleSubmit}>
+        <button type="submit" onClick={handleSubmit}>
           Verify & Proceed
         </button>
       </form>
